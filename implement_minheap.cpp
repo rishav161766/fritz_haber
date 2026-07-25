@@ -88,4 +88,9 @@ pq.push(47);
 pq.display();
 pq.pop();
 pq.display();
+
+int a=10;
+int b=20;
+int c=a+b;
+cout<<"sum is :"<<c;
 }
