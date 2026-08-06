@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool check(long long mid, vector<int>& time, int totalTrips) {
+        long long trips = 0;
+
+        for (int t : time) {
+            trips += mid / t;
+            if (trips >= totalTrips)
+                return true;
+        }
+
+        return false;
+    }
+
+    long long minimumTime(vector<int>& time, int totalTrips) {
+        long long low = 1;
+        long long high = 1LL * (*max_element(time.begin(), time.end())) * totalTrips;
+        long long ans = high;
+
+        while (low <= high) {
+            long long mid = low + (high - low) / 2;
+
+            if (check(mid, time, totalTrips)) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+};

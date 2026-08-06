@@ -1,0 +1,18 @@
+vector<int>duplicate (vector<int>&arr){
+	vector<int>ans;
+	int n=arr.size();
+	int i=0,j=1,unique=1;
+	if(n==0) return {};
+		while(j<n){
+			if(arr[i]==arr[j]){
+				j++;
+				continue;
+			}
+			arr[i+1]=arr[j];
+			i++;j++;unique++;
+		}
+	for(int k=0;k<unique;k++){
+		ans.push_back(arr[k]);
+	}
+	return ans;
+}
